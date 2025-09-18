@@ -11,16 +11,15 @@ LOG_FILE_Path=os.path.join(logs_path,LOG_FILE)
 print("Working directory:", os.getcwd())
 print("Log file will be at:", LOG_FILE_Path)
 
-logging.basicConfig(
-    filename=LOG_FILE_Path,
-    format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s -%(message)s",
-    level=logging.INFO,
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
 
-)
-if __name__=="__main__":
-    logging.info("logging has started")
-    logging.warning("WARNING TEST ENTRY")
-    if os.path.exists(LOG_FILE_Path):
-        print("Log file created successfully!")
-    else:
-        print("Log file NOT created.")
+# File handler
+file_handler = logging.FileHandler(LOG_FILE_Path)
+file_handler.setFormatter(logging.Formatter("[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s"))
+logger.addHandler(file_handler)
+
+# Console handler
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(logging.Formatter("[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s"))
+logger.addHandler(console_handler)
