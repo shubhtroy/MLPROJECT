@@ -1,23 +1,29 @@
-# Data and ML
-pandas
-numpy
-seaborn
-matplotlib
-scikit-learn
-catboost
-xgboost
-
-# Web Framework
+# Web Framework & Server
 Flask
 gunicorn
 flask-cors
 
-# Core ML Models
+# Core Data Science & ML
+numpy
+pandas
+scikit-learn
+scipy
+
+# Plotting Libraries
+matplotlib
+seaborn
+plotly
+
+# Gradient Boosting Models
+catboost
+xgboost
+
+# Deep Learning & Face Recognition
 deepface==0.0.93
 tensorflow==2.20.0
-
-# Specific dependency for Render's environment
 tensorflow-io-gcs-filesystem==0.31.0
 
 # Utilities
+dill
+gdown
 python-dotenv
